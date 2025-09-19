@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltv5koirfwxu"]
+
+[ext_resource type="Script" uid="uid://b0lr32jidsha6" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bh16cehtl5yjt" path="res://HabitTrakerLOGO.png" id="1_ig7tw"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="HabitTrakerLogo" type="Sprite2D" parent="."]
+position = Vector2(576, 326.5)
+scale = Vector2(1.2, 0.67395836)
+texture = ExtResource("1_ig7tw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 394.0
+offset_right = 1099.0
+offset_bottom = 451.0
+text = "WELCOME"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

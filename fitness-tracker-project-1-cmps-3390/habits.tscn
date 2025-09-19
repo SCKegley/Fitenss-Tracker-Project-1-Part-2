@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckhl2mt14aqmx"]
+
+[ext_resource type="Script" uid="uid://c16ovbguo3qfr" path="res://habits.gd" id="1_lmqjq"]
+
+[node name="Habits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmqjq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 1144.0
+offset_bottom = 647.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Your Habit Tracker"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+z_index = 100
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Habit:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+expand_to_text_length = true
+
+[node name="ButtonAdd" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ADD"
+
+[node name="ButtonSave" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="ButtonLoad" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonAdd" to="." method="_on_button_add_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonSave" to="." method="_on_button_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonLoad" to="." method="_on_button_load_pressed"]
