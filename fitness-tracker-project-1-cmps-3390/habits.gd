@@ -1,5 +1,9 @@
 extends Control
 
+# To review data in JSON DATA
+# Press: Windows + R
+# Type: %APPDATA%\Godot\app_userdata\
+
 # Node references - using RichTextLabel instead of ItemList
 @onready var habit_display: RichTextLabel
 @onready var habit_input: LineEdit
@@ -11,7 +15,6 @@ var habits_data = []
 const SAVE_FILE = "user://habits.save"
 
 func _ready():
-	# Get node references - NOTE: Using RichTextLabel now
 	habit_display = $VBoxContainer/ScrollContainer/RichTextLabel
 	habit_input = $VBoxContainer/HBoxContainer/LineEdit
 	add_button = $VBoxContainer/HBoxContainer/ButtonAdd
@@ -20,7 +23,6 @@ func _ready():
 	
 	# Debug: Check if nodes were found
 	print("RichTextLabel found: ", habit_display != null)
-	print("RichTextLabel path: ", habit_display.get_path() if habit_display else "NULL")
 	
 	# Connect button signals
 	add_button.pressed.connect(_on_add_button_pressed)
@@ -32,7 +34,8 @@ func _ready():
 	
 	# Test display
 	update_habit_display()
-
+	
+# stip_edge to remove white SPACEEE!
 func _on_add_button_pressed():
 	var habit_text = habit_input.text.strip_edges()
 	
@@ -123,6 +126,7 @@ func load_habits():
 			print("Error: Could not load habits file")
 	else:
 		print("No save file found - starting fresh")
+		
 
 func get_day_name(day_index):
 	var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
